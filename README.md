@@ -47,13 +47,79 @@ python3 manage.py runserver
 ```
 
 ### Примеры запросов:
-Получение JWT токена:
 
+>**Получение JWT токена**
+
+*POST запрос:*
+
+```http://127.0.0.1:8000/api/v1/jwt/create/```
+
+*JSON тело запроса:*
 ```
-http://127.0.0.1:8000/api/v1/jwt/create/
+{
+"username": "string",
+"password": "string"
+}
+```
+*Ответ:*
+```
+{
+"refresh": "string",
+"access": "string"
+}
 ```
 
-Все ключевые эндпоинты можно получить по запросу:
+>**Создание поста**
+
+*POST запрос на эндпоинт:*
+
+```http://127.0.0.1:8000/api/v1/posts/ ```
+
+*JSON тело запроса:*
+```
+{
+"text": "string",
+"image": "string",
+"group": 0
+}
+```
+*Ответ:*
+```
+{
+"id": 0,
+"author": "string",
+"text": "string",
+"pub_date": "2019-08-24T14:15:22Z",
+"image": "string",
+"group": 0
+}
+```
+
+>**Добавление комментария**
+
+*POST запрос на эндпоинт:*
+
+```http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/ ```
+
+*JSON тело запроса:*
+```
+{
+"text": "string"
+}
+```
+*Ответ:*
+```
+{
+"id": 0,
+"author": "string",
+"text": "string",
+"created": "2019-08-24T14:15:22Z",
+"post": 0
+}
+```
+
+
+### Все ключевые эндпоинты можно получить по запросу:
 
 ```
 http://127.0.0.1:8000/api/
